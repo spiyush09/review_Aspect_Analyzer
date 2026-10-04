@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+transformers>=4.41
+datasets
+accelerate
+scikit-learn
+matplotlib
+spacy>=3.5
+pandas
+streamlit>=1.30

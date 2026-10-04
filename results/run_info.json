@@ -1,0 +1,14 @@
+{
+  "model": "bert-base-uncased",
+  "domains": [
+    "restaurant"
+  ],
+  "epochs": 4,
+  "learning_rate": 2e-05,
+  "batch_size": 16,
+  "seed": 42,
+  "val_accuracy": 0.7711,
+  "val_macro_f1": 0.6671,
+  "test_accuracy": 0.8027,
+  "test_macro_f1": 0.7408
+}

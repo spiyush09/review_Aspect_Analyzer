@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+
+# trained model and downloaded data are big, so we do not push them
+models/*
+!models/.gitkeep
+data/
