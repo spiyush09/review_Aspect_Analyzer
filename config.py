@@ -41,7 +41,14 @@ MIN_ASPECT_LENGTH = 3
 
 # very generic nouns that are not useful as aspects
 IGNORE_ASPECTS = {
-    "thing", "things", "time", "day", "lot", "way", "bit", "kind", "one",
-    "people", "everything", "something", "anything", "nothing", "year",
-    "week", "month", "minute", "hour", "reason", "fact", "point", "end",
+    "thing", "things", "time", "day", "lot", "way", "bit", "kind",
+    "one", "people", "everything", "something", "anything", "nothing",
+    "year", "week", "month", "minute", "hour", "reason", "fact",
+    "point", "end",
+
+    # Generic review words that are usually not useful aspects
+    "experience", "improvement", "room", "restaurant", "place",
+    "visit", "overall", "result", "problem", "issue", "part",
+    "lot", "someone", "everyone", "customer", "review"
 }
+

@@ -161,7 +161,8 @@ review_Aspect_Analyzer/
 │   └── absa_model/          # trained model (not pushed to GitHub, too big)
 ├── results/
 │   ├── confusion_matrix.png # confusion matrix on the test set
-│   └── run_info.json        # training settings and accuracy / F1 numbers
+│   ├── classification_report.txt  # precision, recall and F1 for each class
+│   └── metrics.json         # training settings and accuracy / F1 numbers
 ├── src/
 │   ├── data_loader.py       # download, read and split the data
 │   ├── train.py             # fine-tune BERT
@@ -218,20 +219,19 @@ The model was evaluated on the validation set (used while training) and on the t
 
 | Set | Accuracy | Macro-F1 |
 |-----|----------|----------|
-| Validation | 0.7711 | 0.6671 |
-| **Test** | **0.8027** | **0.7408** |
+| Validation | 0.7657 | 0.6761 |
+| **Test** | **0.7726** | **0.7089** |
 
 The saved files in the `results/` folder are:
 
 - `confusion_matrix.png`: shows for each true class how many predictions went to each class.
-- `run_info.json`: the training settings and the numbers above.
-
-(If the model is trained again with the current code, it will also save `metrics.json` and `classification_report.txt` in the same folder.)
+- `metrics.json`: the training settings and the numbers above.
+- `classification_report.txt`: precision, recall and F1 for each class on the test set.
 
 **Observations:**
 
-- The model reaches about **80% accuracy** on unseen test data, which is a good result for a 3-class aspect level task with a small dataset.
-- Macro-F1 (0.74) is lower than accuracy (0.80). The reason is class imbalance: there are many more positive examples than neutral ones, so the model does best on positive and struggles most with **neutral**. Neutral opinions are naturally harder, because they have no strong sentiment words.
+- The model reaches about **77% accuracy** on unseen test data, which is a good result for a 3-class aspect level task with a small dataset.
+- Macro-F1 (0.71) is lower than accuracy (0.77). The reason is class imbalance: there are many more positive examples than neutral ones, so the model does best on positive and struggles most with **neutral**. Neutral opinions are naturally harder, because they have no strong sentiment words.
 
 ---
 
@@ -312,7 +312,7 @@ Open `http://localhost:8501` in the browser, then:
 
 ## 12. Conclusion
 
-This project shows that aspect-based sentiment analysis gives much more useful information than one overall sentiment label. By combining a rule based aspect extractor (spaCy) with a fine-tuned BERT classifier, the system finds what customers are talking about and how they feel about each thing. The model reached **80.27% accuracy and 0.74 macro-F1** on the test set, and the Streamlit app makes it easy for anyone to try it. The project also helped in understanding transfer learning, careful data splitting, and how to evaluate a model on imbalanced classes.
+This project shows that aspect-based sentiment analysis gives much more useful information than one overall sentiment label. By combining a rule based aspect extractor (spaCy) with a fine-tuned BERT classifier, the system finds what customers are talking about and how they feel about each thing. The model reached **77.26% accuracy and 0.71 macro-F1** on the test set, and the Streamlit app makes it easy for anyone to try it. The project also helped in understanding transfer learning, careful data splitting, and how to evaluate a model on imbalanced classes.
 
 ---
 
